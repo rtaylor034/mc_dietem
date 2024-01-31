@@ -21,13 +21,13 @@ data modify storage dietem:var death.call.in.info.keep_inventory set from storag
 data modify storage dietem:var death.call.in.info.death_items set from storage dietem:var death.clear_items
 data modify storage dietem:var death.call.in.info.death_xp set from storage dietem:var death.clear_xp
 
-#-- EVENT : on_death_info --
-data modify storage dietem:var death.call.in.event set value "#dietem:event/on_death_info"
+#-- EVENT : on_death --
+data modify storage dietem:var death.call.in.event set value "#dietem:event/on_death"
 function gvent:api/call with storage dietem:var death.call
 #------
 
-#-- EVENT : on_death --
-data modify storage dietem:var death.call.in.event set value "#dietem:event/on_death"
+#-- EVENT : on_death_info --
+data modify storage dietem:var death.call.in.event set value "#dietem:event/on_death_info"
 function gvent:api/call with storage dietem:var death.call
 #------
 
