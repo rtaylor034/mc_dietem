@@ -1,0 +1,16 @@
+> #dietem:event > pre_death
+--------------------
+ * when a player dies (called before gvent 'on_death')
+--------------------
+ [AS] [AT] player
+ -> keep_inventory: bool
+--------------------
+ <-> death_items: Item[]
+--------------------
+- <keep_inventory> is equal to the 'keep_inventory' setting.
+  - if <keep_inventory> is true, DieTem does not clear death items from the player's inventory.
+  
+- >death_items< starting value is [player]'s inventory at the moment they died.
+  - all items that are still contained in >death_items< at the end of the pass will be provided as <death_items> to gvent 'on_death'.
+    - they will also be cleared from [player]'s inventory (unless <keep_inventory> is true).
+--------------------

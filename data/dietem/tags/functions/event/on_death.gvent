@@ -1,0 +1,26 @@
+> #dietem:event > on_death
+--------------------
+ * when a player dies (called after gvent 'pre_death')
+--------------------
+ [AS] [AT] player
+ -> keep_inventory: bool
+ -> death_items: Item[]
+--------------------
+ ...
+--------------------
+- <keep_inventory> is equal to the 'keep_inventory' setting.
+  - if <keep_inventory> is true, DieTem does not clear <death_items> from the player's inventory.
+
+- <death_items> are the items that this player will 'lose' on death and will be cleared from [player]'s inventory (unless <keep_inventory> is true).
+  - this is passed from gvent 'pre_death'.
+
+- it is solely the subscriber(s) of this events' responsibility to handle <death_items>. 
+  - i.e. if no function subscribes to this event, <death_items> will simply be cleared and permanently lost.
+  - with that being said, this event should only really have 1 subscriber (json file should have the 'replace' key set to true); the subscriber being a function that implements the "dropping" of items on death.
+  - if this event is subscribed too by multiple datapacks, there is a good chance they are conceptually incompatible.
+
+- as stated above, this event implies implementation, if for some reason you require this event but are NOT providing an implementation (ex: logging, info, etc.), use 'on_death_info'.
+
+~ DEVNOTE: DieTem still calls it's events even if <keep_inventory> is true to allow arbitrarily custom behavior, but developers should respect the concept of 'keep_inventory' in their packs.
+  ~ for example: the default 'on_death' subscriber, 'dietem/default/explode', simply returns early and does nothing if <keep_inventory> is true (because no items should explode from the player if no items are cleared).
+--------------------

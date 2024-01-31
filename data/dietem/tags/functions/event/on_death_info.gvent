@@ -1,0 +1,17 @@
+> #dietem:event > on_death_info
+--------------------
+ * same time as 'on_death'
+--------------------
+ [AS] [AT] player
+ -> keep_inventory: bool
+ -> death_items: Item[]
+--------------------
+ ...
+--------------------
+- this event is called immediately before 'on_death' with the same provided values, but subscribers MUST NOT implement the "dropping" of <death_items> (or really have any functional impact).
+(See 'on_death' for more info)
+
+- json file should have 'replace' key set to false.
+
+- may be useful for logging, info, etc.
+--------------------
