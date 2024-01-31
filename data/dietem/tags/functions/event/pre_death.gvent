@@ -6,11 +6,16 @@
  -> keep_inventory: bool
 --------------------
  <-> death_items: Item[]
+ <-> death_xp: int
 --------------------
 - <keep_inventory> is equal to the 'keep_inventory' setting.
-  - if <keep_inventory> is true, DieTem does not clear death items from the player's inventory.
+  - if <keep_inventory> is true, DieTem does not clear death items/xp from the player's inventory.
   
 - >death_items< starting value is [player]'s inventory at the moment they died.
-  - all items that are still contained in >death_items< at the end of the pass will be provided as <death_items> to gvent 'on_death'.
-    - they will also be cleared from [player]'s inventory (unless <keep_inventory> is true).
+  - items still contained in >death_items< at the end of the pass will be provided as <death_items> to gvent 'on_death'.
+    - these will be cleared from [player]'s inventory (unless <keep_inventory> is true).
+
+- >death_xp< starting value is [player]'s total xp (their 'Score') at the moment they died.
+  - value contained in >death_xp< at the end of the pass will be provided as <death_xp> to gvent 'on_death'.
+  - this amount of xp will be removed from [player] (unless <keep_inventory is true).
 --------------------

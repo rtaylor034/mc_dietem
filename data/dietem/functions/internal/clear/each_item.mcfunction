@@ -1,6 +1,6 @@
 #> dietem:internal/clear_item
 #--------------------
-# ./on_death
+# on_death
 #--------------------
 
 execute store result score *clear.slot dietem_var run data get storage dietem:var death.clear_items[-1].Slot
