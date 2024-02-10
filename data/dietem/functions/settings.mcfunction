@@ -1,6 +1,8 @@
 #>dietem:settings
 
 #declare storage dietem:settings
+data modify storage dietem:settings PERSIST set value false
+
 
 #>-------------------
 #> keep_inventory

@@ -3,7 +3,7 @@
 # @LOAD
 #--------------------
 #settings
-function dietem:settings
+execute unless data storage dietem:settings {PERSIST:true} run function dietem:settings
 
 #declare storage dietem:var
 #declare storage dietem:in
