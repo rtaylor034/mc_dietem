@@ -6,6 +6,10 @@
 $data modify storage dietem:var explode set value $(info)
 
 execute if data storage dietem:var explode{keep_inventory:1b} run return 0
+
+# curse of vanishing is handled manually by death implementation
+data remove storage dietem:var explode.death_items[{tag:{Enchantments:[{id:"minecraft:vanishing_curse"}]}}]
+
 execute if data storage dietem:var explode.death_items[] run function dietem:internal/default/each_item
 
 #default xp calculation does not care about xp points, just levels.

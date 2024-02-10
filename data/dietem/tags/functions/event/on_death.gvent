@@ -25,6 +25,8 @@
 
 - as stated above, this event implies implementation, if for some reason you require this event but are NOT providing an implementation (ex: logging, info, etc.), use 'on_death_info'.
 
+- this event is triggered before [player]'s inventory is cleared of <death_items>.
+
 ~ DEVNOTE: DieTem still calls it's events even if <keep_inventory> is true to allow arbitrarily custom behavior, but developers should respect the concept of 'keep_inventory' in their packs.
   ~ for example: the default 'on_death' subscriber, 'dietem/default/explode', simply returns early and does nothing if <keep_inventory> is true (because no items/xp should explode from the player if no items/xp are cleared).
 --------------------
