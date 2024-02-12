@@ -1,4 +1,5 @@
 {
+    "replace": true,
     "values": [
         "dietem:internal/default/explode"
     ]
