@@ -5,6 +5,7 @@
  [AS] [AT] player
  -> keep_inventory: bool
  -> death_items: Item[]
+ -> death_xp: int
 --------------------
  ...
 --------------------
